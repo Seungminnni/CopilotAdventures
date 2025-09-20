@@ -7,31 +7,24 @@ const WINNING_MOVES = {
     paper: 'rock',
 };
 
-const POINTS = {
-    rock: 1,
-    paper: 2,
-    scissors: 3,
-};
+    const ROK_ASCII = [
+        "       _.-''''-._",
+        "     .'  _     _  '.",
+        "    /   (o)   (o)   /",
+        "   |     (  .-.  )   |",
+        "   |     ( (   ) )   |",
+        "   |      `-`-`-'    |",
+        "    '.             .'",
+        "      '-._____.-'"
+    ].join('\n');
 
-const ROK_MOVES = ['scissors', 'paper', 'scissors', 'rock', 'rock'];
-const PAPYRA_MOVES = ['rock', 'rock', 'paper', 'scissors', 'paper'];
-
-function normalize(move) {
-    if (!move) return null;
-    return String(move).trim().toLowerCase();
-}
-
-function describeMove(move) {
-    switch (move) {
-        case 'rock':
-            return 'Rock 🪨';
-        case 'paper':
-            return 'Paper 📜';
-        case 'scissors':
-            return 'Scissors ✂️';
-        default:
-            return move;
-    }
+    const PAPYRA_ASCII = [
+        "      .-''''-.",
+        "     |  .--.  |",
+        "     | (    ) |",
+        "     |  '--'  |",
+        "     '.__.__.'"
+    ].join('\n');
 }
 
 function playDuel(rokMoves, papyraMoves) {
@@ -39,9 +32,39 @@ function playDuel(rokMoves, papyraMoves) {
     let rokScore = 0;
     let papyraScore = 0;
 
+    const ROK_ASCII = [
+        "       _.-''''-._",
+        "     .'  _     _  '.",
+        "    /   (o)   (o)   \\\",
+        "   |  /\\\\   .-.   /\\\\  |",
+        "   | |  | (   ) |  | |",
+        "   | |  |  `-'  |  | |",
+        "   | |  |       |  | |",
+        "    \\\\  \\\\  \\\\_/  /  /",
+        "     '._ '-.___.-' _.'",
+        "        '\\"-.___.-\\"'"
+    ].join('\n');
+
+    const PAPYRA_ASCII = [
+        "       .-\"\"\"-.",
+        "      /  .--. \\\",
+        "     /  /    \\ \\\",
+        "     |  |    |  |",
+        "     |  |.-\"\"-.|",
+        "    ///`.::::.`\\\\\\",
+        "   |||  :::::  |||",
+        "   |||  :::::  |||",
+        "    \\\\ '::::' ///",
+        "     `\"-\`\"--'`\"-'"
+    ].join('\n');
+
     console.log('⚔️ Welcome to the Legendary Duel of Stonevale! ⚔️\n');
     console.log('🏛️ In the ancient arena of Scissoria, two warriors face destiny...\n');
     console.log('🛡️ Rok the Stone Warrior vs 📜 Papyra the Swift\n');
+    console.log('Rok:');
+    console.log(ROK_ASCII + '\n');
+    console.log('Papyra:');
+    console.log(PAPYRA_ASCII + '\n');
 
     for (let i = 0; i < rounds; i++) {
         const roundNum = i + 1;
